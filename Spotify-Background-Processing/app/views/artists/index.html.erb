@@ -1,0 +1,14 @@
+<%= form_tag("/artists#create", method: "post") do %>
+  <%= submit_tag("Search") %>
+<% end %>
+<p>
+    <input id="search-button" onclick="getAlbumData()" type="submit" value="Get Started">
+    </input>
+</p>
+<br>
+<p>
+<div id ="results" class="results"></div>
+</p>
+<p>
+    <svg class="chart" id="chart"></svg>
+</p>
