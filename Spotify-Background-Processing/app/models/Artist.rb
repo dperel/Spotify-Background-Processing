@@ -1,10 +1,9 @@
 class Artist < ActiveRecord::Base
-require 'worker.rb'
-
-  def initialize
-    HardWorker.perform_async
+@@data = []
+  
+  def initialize(return_data)
+    @name = return_data["name"]
+    @followers = return_data["followers"]["total"]
   end
-
-
 
 end
