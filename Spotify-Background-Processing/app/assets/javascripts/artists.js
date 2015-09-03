@@ -1,15 +1,17 @@
-// function getAlbumData(offset){
-//       //var offset = 1
-//       var artistURL = "https://api.spotify.com/v1/search?q=year%3A2001&type=artist&market=US&limit=1&offset=" + offset;
-//       debugger;
-//      $.ajax({
-//         url: artistURL,
-//       })
-//       .done(function( artistData ) {
-//         $('#results').html(artistData.artists.items[0].name + " has this many followers: " + artistData.artists.items[0].followers.total);
-//         return artistData.artists.items[0].name
-//         console.log(artistData.artists.items[0].name)
-//         })
-//       }
-//     ;
 
+var ready;
+ready = function() {
+//this will make the chart 
+  
+  data = gon.artists
+  debugger;
+
+  console.log(data);
+
+
+
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

@@ -6,10 +6,13 @@ require 'worker.rb'
   end
 
   def create
-      @artists = Artist.all 
+      @artists = Artist.all
+      gon.artists = Artist.all 
       HardWorker.perform_async
+      HardWorker.dothis_async
       redirect_to :back
   end 
+
 
 end
 

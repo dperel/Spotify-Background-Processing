@@ -4,11 +4,10 @@
 <br>
 <p>
 <div id ="results" class="results">
-  <%=@artists.each do |artist| %> 
+  <%=@artists.map do |artist| %> 
   <%= artist.name%> 
   <%end%> 
 </div>
-
 </p>
 <p>
     <svg class="chart" id="chart"></svg>
