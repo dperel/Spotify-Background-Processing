@@ -9,7 +9,7 @@ sidekiq_options :queue => :default
   def perform
     count= 2
     url = "https://api.spotify.com/v1/search?q=year%3A2001&type=artist&market=US&limit=1&offset="
-    1..5.times do 
+    1..10.times do 
       finalURL = url + count.to_s
       count+=1
       data = JSON.parse(open(finalURL).read)
