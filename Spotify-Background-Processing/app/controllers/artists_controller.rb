@@ -2,8 +2,11 @@ class ArtistsController < ApplicationController
 require 'worker.rb'
 require 'json'
 
-  def index
+  def new
     @artists = Artist.all 
+     respond_to do |format|
+      format.json {render :json => @artists}
+    end 
   end
 
   def create
@@ -12,6 +15,13 @@ require 'json'
 
       redirect_to :back
   end 
+
+  # def refresh 
+  #   @artists = Artist.all
+  #   respond_to do |format|
+  #     format.json {render :json => @artists}
+  #   end 
+  # end
 
 
 end

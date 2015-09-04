@@ -1,0 +1,35 @@
+function updateGraph(){
+  // var data = $("#dataline").data("artists"); //this data needs to be updated... 
+  
+  $.ajax({
+          type: "GET",
+          url: '/artists/new',
+          dataType: "json",
+          success: function(data){
+            makeGraph(data)
+          }
+      });
+  }
+
+
+
+// function refreshGraph{
+//   // x.domain(d3.extent(data, function(d) { return x(d.followers) }))
+//   // y.domain(d3.extent(data, function(d) { return y(d.id) }))
+
+//   var circles = svg.selectAll("circle")
+//   .data(data, function(d) { return x(d.followers) })
+  
+//   circles.transition()
+//    .attr("cx", function(d) { return x(d.followers) })
+//    .attr("cy", function(d) { return y(d.id) })
+
+//   circles.enter()
+//    .append("svg:circle")
+//    .attr("r", 4)
+//    .attr("cx", function(d) { return x(d.followers) })
+//    .attr("cy", function(d) { return y(d.id) })
+
+//   circles.exit()
+//    .remove();
+// };
