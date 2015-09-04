@@ -3,12 +3,16 @@
 <% end %>
 <br>
 <p>
-<div id ="results" class="results">
-  <%=@artists.map do |artist| %> 
-  <%= artist.name%> 
-  <%end%> 
-</div>
+
+<%=content_tag "div", id: "dataline", data: {artists: @artists} do %>
+loading...
+<%end%>
+
+
+<br>
 </p>
+<div class="results" id="results">
+</div>
 <p>
     <svg class="chart" id="chart"></svg>
 </p>

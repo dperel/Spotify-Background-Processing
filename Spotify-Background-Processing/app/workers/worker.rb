@@ -20,7 +20,7 @@ sidekiq_options :queue => :default
         obj.followers = return_data["followers"]["total"]
         obj.save
       else 
-        gon.message = "sorry! API malfunction!"
+        # gon.message = "sorry! API malfunction!"
       end 
     end 
   end 
