@@ -16,7 +16,9 @@ function makeGraph(optionalArg){
       .data(optionalArg)
       .enter()
       .append("g")
-      .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+      .attr("transform", function(d, i) { return "translate(0," + (i-.9) * barHeight + ")"; })
+      // .transition()
+      // .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
 
   bar.append("rect")
       .attr("width", function(optionalArg,i) { return x(optionalArg.followers); })

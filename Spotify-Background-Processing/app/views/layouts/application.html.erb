@@ -5,7 +5,6 @@
   <meta content="utf-8" http-equiv="encoding">
   <script src="/assets/d3.v3.js"> </script>
   <title>SpotifyBackgroundProcessing</title>
-  <%= include_gon(:init => true) %>  
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -14,7 +13,6 @@
 </head>
 
 <body>
-
 <%= yield %>
 
 </body>

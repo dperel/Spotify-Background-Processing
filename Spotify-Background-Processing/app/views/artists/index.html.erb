@@ -4,18 +4,19 @@
 <% end %>
 <br>
 <p>
-
 <%=content_tag "div", id: "dataline", data: {artists: @artists} do %>
 loading...
 <%end%>
-
-
 <br>
+<div id='artists'>
+ <%= @artists %>
+</div>
+<a href='#' id='stop-renewing'>
+ Stop renewing
+</a>
 </p>
 <button id="update" onclick="updateGraph();">Update</button>
 <div class="results" id="results"></div>
-
-
 <p>
  <svg class="chart" id="chart" onMouseover="makeGraph();"></svg>
 </p>
