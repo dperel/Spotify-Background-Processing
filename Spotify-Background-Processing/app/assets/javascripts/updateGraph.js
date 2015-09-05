@@ -5,7 +5,7 @@ function updateChart(){
           url: '/artists/new',
           dataType: "json",
           success: function(data){
-            redraw(data)
+            redraw(data);
           }
       });
   }

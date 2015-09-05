@@ -63,7 +63,10 @@ var heightScale = d3.scale.linear()
        .attr("x", function(d) { return x(d.id) - .5; })
        .attr("y", function(d) { return h - y(d.followers)})
        .attr("width", b)
-       .attr("height", function(d) { return heightScale(d.followers); });
+       .attr("height", function(d) { return heightScale(d.followers); })
+       .transition()
+       .duration(1000)
+       .attr("x", function(d) { return x(d.id) - .5; });
  
    // Update…
    rect.transition()
@@ -71,7 +74,9 @@ var heightScale = d3.scale.linear()
        .attr("x", function(d) { return x(d.id); });
  
    // Exit…
-   rect.exit()
+   rect.exit().transition()
+       .duration(1000)
+       .attr("x", function(d) { return x(d.id-1) - .5; })
        .remove();
  
  };
