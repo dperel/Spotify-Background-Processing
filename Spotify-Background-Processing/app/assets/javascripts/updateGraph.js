@@ -6,7 +6,6 @@ function updateChart(){
           dataType: "json",
           success: function(data){
             console.log(data.length);
-            debugger;
             redraw(data);
           }
       });

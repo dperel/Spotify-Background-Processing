@@ -20,17 +20,10 @@ sidekiq_options :queue => :default
         obj.name = return_data["name"]
         obj.followers = return_data["followers"]["total"]
         obj.save
-        Graph.new
+        
         end
   end 
 
-
-  # def update_chart 
-  #   respond_to do |format|
-  #     format.js { render :js => "updateChart();" }
-  #   end
-  #   binding.pry
-  # end
 end 
 
 
