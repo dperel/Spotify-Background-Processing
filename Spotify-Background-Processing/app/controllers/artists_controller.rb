@@ -3,7 +3,7 @@ require 'worker.rb'
 require 'json'
 
   def new
-    @artists = Artist.all.order("id desc").limit(5)
+    @artist = Artist.last
      respond_to do |format|
       format.json {render :json => @artists}
     end 

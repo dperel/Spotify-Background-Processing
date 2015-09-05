@@ -1,21 +1,14 @@
 
 <%= form_tag("/artists#create", method: "post") do %>
-  <%= submit_tag("Search") %>
+  <%= submit_tag( "Search") %>
 <% end %>
 <br>
 <p>
   <button onclick="dynamicBarChart();">Start Chart</button>
 
-  <button onclick="updateChart();">Update Chart</button>
-
-<button onclick="myStopFunction();">Stop Updating</button>
+<!--   <button onclick="updateChart();">Update Chart</button> -->
   <script>
 
-  var myVar = setInterval(function(){ updateChart() }, 3000);
-
-    function myStopFunction() {
-        clearInterval(myVar);
-    }
   </script>
 </p>
 <div class="results" id="results"></div>
