@@ -1,16 +1,16 @@
 
 function dynamicBarChart(data){
  var w = 400,
-     h = 800,
+     h = 400,
      b = 25;
  
  if (typeof data === 'undefined') { data = [{"id":434,"created_at":"2015-09-04T15:22:26.148Z","updated_at":"2015-09-04T15:22:26.148Z","name":"Chris Brown","followers":2570281},{"id":435,"created_at":"2015-09-04T15:22:27.800Z","updated_at":"2015-09-04T15:22:27.800Z","name":"Chris Brown","followers":2570281},{"id":436,"created_at":"2015-09-04T15:22:28.327Z","updated_at":"2015-09-04T15:22:28.327Z","name":"Wiz Khalifa","followers":2512515},{"id":437,"created_at":"2015-09-04T15:22:28.823Z","updated_at":"2015-09-04T15:22:28.823Z","name":"Eminem","followers":4332256},{"id":438,"created_at":"2015-09-04T15:22:29.440Z","updated_at":"2015-09-04T15:22:29.440Z","name":"2 Chainz","followers":610710},{"id":439,"created_at":"2015-09-04T15:22:30.258Z","updated_at":"2015-09-04T15:22:30.258Z","name":"Maroon 5","followers":5911079}];  };
- 
+
  
  var x = d3.scale.linear()
-     .domain([0,1000])
+     .domain([0,d3.max(data).id])
      .range([0, w]);
- 
+
   var y = d3.scale.linear()
      .domain([0, 3000000])
      .range([0, h]);
@@ -18,6 +18,10 @@ function dynamicBarChart(data){
 var heightScale = d3.scale.linear()
     .domain([0,3000000])
     .range([0,h]);
+
+var colorScale = d3.scale.linear()
+    .domain([0,3000000])
+    .range(["blue","red"]);
 
  var chart = d3.select("body")
   .append("svg:svg")
@@ -28,11 +32,14 @@ var heightScale = d3.scale.linear()
 chart.selectAll("rect")
   .data(data)
   .enter().append("svg:rect")
-  .attr("x", function(d) { return x(d.id); })
+  .attr("x", function(d) { return x(d.id)+250; })
   .attr("y", function(d) { return h - y(d.followers)})
   .attr("width", b)
   .attr("height", function(d) { return heightScale(d.followers); });
 
+ setTimeout(function(){
+        updateChart();
+    }, 1100);
 };
 
 
@@ -41,10 +48,10 @@ chart.selectAll("rect")
   
    var chart = d3.select("svg");
    var w = 400,
-      h = 800,
+      h = 400,
       b = 25;
    var x = d3.scale.linear()
-     .domain([0,1000])
+     .domain([0,d3.max(data).id])
      .range([0, w]);
  
   var y = d3.scale.linear()
@@ -55,29 +62,41 @@ var heightScale = d3.scale.linear()
     .domain([0,3000000])
     .range([0,h]);
 
+var colorScale = d3.scale.linear()
+    .domain([0,3000000])
+    .range(["blue","red"]);
+
+
    var rect = chart.selectAll("rect")
        .data(data, function(d) { return d.created_at; });
  
    // Enter…
    rect.enter().insert("svg:rect", "line")
-       .attr("x", function(d) { return x(d.id+300)})
+       .attr("x", function(d) { return x(d.id)+350})
        .attr("y", function(d) { return h - y(d.followers)})
        .attr("width", b)
        .attr("height", function(d) { return heightScale(d.followers); })
+       .attr("fill", function(d) { return colorScale(d.followers); })
        .transition()
-       .duration(1500)
-       .attr("x", function(d) { return x(d.id)});
+       .duration(1000)
+       .attr("x", function(d) { return x(d.id)+250});
  
    // Update…
    rect.transition()
-       .duration(1500)
+       .duration(1000)
        .attr("x", function(d) { return x(d.id); });
  
    // Exit…
    rect.exit()
       .transition()
-       .duration(1500)
-       .attr("x", function(d) { return x(d.id-200)})
-       .remove();
+      .duration(1000)
+      .attr("x", function(d) { return x(d.id)-250})
+      .remove();
+
+
+    setTimeout(function(){
+        updateChart();
+    }, 1100);
+
  
  };

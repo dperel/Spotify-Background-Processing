@@ -12,30 +12,8 @@
  *
  *= require_tree .
  *= require_self
- */
+ */ 
 
-g {
-  fill: red;
-  fill-opacity:0.9;
-}   
-
-body {
-  background-image:url("/assets/grammy.jpg");
-}
-
-div.tooltip {   
-  position: absolute;           
-  text-align: center;           
-  width: 80px;                  
-  height: 60px;                 
-  padding: 2px;             
-  font: 14px sans-serif;
-  font-weight: bold;        
-  background: lightsteelblue;   
-  border: 0px;      
-  border-radius: 8px;           
-  pointer-events: none;         
-}
 
 
 
