@@ -1,0 +1,14 @@
+<%= form_tag("/artists#create", method: "post") do %>
+  <%= submit_tag("Search") %>
+<% end %>
+<br>
+<p>
+
+<%=content_tag "div", id: "dataline", data: {artists: @artists} do %>
+loading...
+<%end%>
+
+
+<br>
+</p>
+<div class="results" id="results">
