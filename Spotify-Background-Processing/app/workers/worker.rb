@@ -1,3 +1,5 @@
+#Background job processor 
+
 class HardWorker
 
 require 'open-uri'
@@ -7,9 +9,9 @@ include Sidekiq::Worker
 sidekiq_options :queue => :default
 
   def perform
-    count= 2
+    count= 1
     url = "https://api.spotify.com/v1/search?q=year%3A2001&type=artist&market=US&limit=1&offset="
-    1..10.times do 
+    1..50.times do 
       finalURL = url + count.to_s
       count+=1
       data = JSON.parse(open(finalURL).read)
@@ -24,11 +26,5 @@ sidekiq_options :queue => :default
       end 
     end 
   end 
-
-  def dothis
-  
-    binding.pry
-  end
-
 
 end

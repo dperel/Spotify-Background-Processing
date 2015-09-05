@@ -4,25 +4,17 @@
 <% end %>
 <br>
 <p>
-<!-- <%=content_tag "div", id: "dataline", data: {artists: @artists} do %>-->
-<!--<%end%> -->
-<br>
+  <button onclick="dynamicBarChart();">Dynamic Chart</button>
+  <!-- <script>
+    var myVar = setInterval(function(){ updateGraph() }, 1000);
+
+    updateGraph();
+
+    function myStopFunction() {
+        clearInterval(myVar);
+    }
+  </script> -->
 </p>
-<p>
-
-<button onclick="myStopFunction()">Stop time</button>
-
-<script>
-var myVar = setInterval(function(){ updateGraph() }, 1000);
-
-updateGraph();
-
-function myStopFunction() {
-    clearInterval(myVar);
-}
-</script>
-</p>
-<!-- <button id="update" onclick="updateGraph();">Update</button> -->
 <div class="results" id="results"></div>
 <p>
  <svg class="chart" id="chart"></svg>

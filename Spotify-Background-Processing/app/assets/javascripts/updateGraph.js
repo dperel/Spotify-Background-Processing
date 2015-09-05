@@ -1,9 +1,4 @@
-function startApp(){
-  
-}
-
 function updateGraph(){
-  // var data = $("#dataline").data("artists"); //this data needs to be updated... 
   
   $.ajax({
           type: "GET",
