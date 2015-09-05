@@ -60,23 +60,24 @@ var heightScale = d3.scale.linear()
  
    // Enter…
    rect.enter().insert("svg:rect", "line")
-       .attr("x", function(d) { return x(d.id) - .5; })
+       .attr("x", function(d) { return x(d.id+300)})
        .attr("y", function(d) { return h - y(d.followers)})
        .attr("width", b)
        .attr("height", function(d) { return heightScale(d.followers); })
        .transition()
-       .duration(1000)
-       .attr("x", function(d) { return x(d.id) - .5; });
+       .duration(1500)
+       .attr("x", function(d) { return x(d.id)});
  
    // Update…
    rect.transition()
-       .duration(1000)
+       .duration(1500)
        .attr("x", function(d) { return x(d.id); });
  
    // Exit…
-   rect.exit().transition()
-       .duration(1000)
-       .attr("x", function(d) { return x(d.id-1) - .5; })
+   rect.exit()
+      .transition()
+       .duration(1500)
+       .attr("x", function(d) { return x(d.id-200)})
        .remove();
  
  };

@@ -5,16 +5,18 @@
 <br>
 <p>
   <button onclick="dynamicBarChart();">Start Chart</button>
-  <button onclick="updateChart();">Update Chart</button>
-  <!-- <script>
-    var myVar = setInterval(function(){ updateGraph() }, 1000);
 
-    updateGraph();
+  <button onclick="updateChart();">Update Chart</button>
+
+<button onclick="myStopFunction();">Stop Updating</button>
+  <script>
+
+  var myVar = setInterval(function(){ updateChart() }, 3000);
 
     function myStopFunction() {
         clearInterval(myVar);
     }
-  </script> -->
+  </script>
 </p>
 <div class="results" id="results"></div>
 
