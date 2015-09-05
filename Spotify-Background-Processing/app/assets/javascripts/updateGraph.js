@@ -1,11 +1,11 @@
-function updateGraph(){
+function updateChart(){
   
   $.ajax({
           type: "GET",
           url: '/artists/new',
           dataType: "json",
           success: function(data){
-            makeGraph(data)
+            redraw(data)
           }
       });
   }

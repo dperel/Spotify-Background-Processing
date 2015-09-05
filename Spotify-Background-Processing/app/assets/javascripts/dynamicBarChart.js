@@ -1,13 +1,14 @@
 
-function dynamicBarChart(){
+function dynamicBarChart(data){
  var w = 400,
      h = 800,
      b = 25;
  
- var data = [{"id":434,"created_at":"2015-09-04T15:22:26.148Z","updated_at":"2015-09-04T15:22:26.148Z","name":"Chris Brown","followers":2570281},{"id":435,"created_at":"2015-09-04T15:22:27.800Z","updated_at":"2015-09-04T15:22:27.800Z","name":"Chris Brown","followers":2570281},{"id":436,"created_at":"2015-09-04T15:22:28.327Z","updated_at":"2015-09-04T15:22:28.327Z","name":"Wiz Khalifa","followers":2512515},{"id":437,"created_at":"2015-09-04T15:22:28.823Z","updated_at":"2015-09-04T15:22:28.823Z","name":"Eminem","followers":4332256},{"id":438,"created_at":"2015-09-04T15:22:29.440Z","updated_at":"2015-09-04T15:22:29.440Z","name":"2 Chainz","followers":610710},{"id":439,"created_at":"2015-09-04T15:22:30.258Z","updated_at":"2015-09-04T15:22:30.258Z","name":"Maroon 5","followers":5911079}];
+ if (typeof data === 'undefined') { data = [{"id":434,"created_at":"2015-09-04T15:22:26.148Z","updated_at":"2015-09-04T15:22:26.148Z","name":"Chris Brown","followers":2570281},{"id":435,"created_at":"2015-09-04T15:22:27.800Z","updated_at":"2015-09-04T15:22:27.800Z","name":"Chris Brown","followers":2570281},{"id":436,"created_at":"2015-09-04T15:22:28.327Z","updated_at":"2015-09-04T15:22:28.327Z","name":"Wiz Khalifa","followers":2512515},{"id":437,"created_at":"2015-09-04T15:22:28.823Z","updated_at":"2015-09-04T15:22:28.823Z","name":"Eminem","followers":4332256},{"id":438,"created_at":"2015-09-04T15:22:29.440Z","updated_at":"2015-09-04T15:22:29.440Z","name":"2 Chainz","followers":610710},{"id":439,"created_at":"2015-09-04T15:22:30.258Z","updated_at":"2015-09-04T15:22:30.258Z","name":"Maroon 5","followers":5911079}];  };
+ 
  
  var x = d3.scale.linear()
-     .domain([430,440])
+     .domain([0,1000])
      .range([0, w]);
  
   var y = d3.scale.linear()
@@ -33,3 +34,44 @@ chart.selectAll("rect")
   .attr("height", function(d) { return heightScale(d.followers); });
 
 };
+
+
+  function redraw(data) {
+    console.log(data.length)
+  
+   var chart = d3.select("svg");
+   var w = 400,
+      h = 800,
+      b = 25;
+   var x = d3.scale.linear()
+     .domain([0,1000])
+     .range([0, w]);
+ 
+  var y = d3.scale.linear()
+     .domain([0, 3000000])
+     .range([0, h]);
+
+var heightScale = d3.scale.linear()
+    .domain([0,3000000])
+    .range([0,h]);
+
+   var rect = chart.selectAll("rect")
+       .data(data, function(d) { return d.created_at; });
+ 
+   // Enter…
+   rect.enter().insert("svg:rect", "line")
+       .attr("x", function(d) { return x(d.id) - .5; })
+       .attr("y", function(d) { return h - y(d.followers)})
+       .attr("width", b)
+       .attr("height", function(d) { return heightScale(d.followers); });
+ 
+   // Update…
+   rect.transition()
+       .duration(1000)
+       .attr("x", function(d) { return x(d.id); });
+ 
+   // Exit…
+   rect.exit()
+       .remove();
+ 
+ };
