@@ -14,11 +14,8 @@
  *= require_self
  */ 
 
-
-
-
   text {
-  fill: black;
+  fill: blue;
   font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-  font-size: 10px;
+  font-size: 20px;
 }
