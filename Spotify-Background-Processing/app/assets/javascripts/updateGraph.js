@@ -1,5 +1,5 @@
 //1st JS function call 
-$(window).ready(function(){dynamicBarChart()})
+$(window).load(function(){makeFirstChart()})
 
 
 function updateChart(){
@@ -9,8 +9,20 @@ function updateChart(){
           url: '/artists/new',
           dataType: "json",
           success: function(data){
-            console.log(data.length);
             redraw(data);
+          }
+      });
+  }
+
+
+function makeFirstChart(){
+  
+  $.ajax({
+          type: "GET",
+          url: '/artists/new',
+          dataType: "json",
+          success: function(data){
+            dynamicBarChart(data);
           }
       });
   }
