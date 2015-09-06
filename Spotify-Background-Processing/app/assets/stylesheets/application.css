@@ -14,12 +14,30 @@
  *= require_self
  */ 
 
-.label {
-  fill: black;
-  font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-  font-size: 25px;
-}
 
 svg {
-  background-color: grey;
+  display: block;
+  margin: auto;
+  border-style: solid;
+  border-color: grey;
+  border-width: 1px;
+  vertical-align: center;
+}
+
+body {
+   background-image:url("/assets/congruent_pentagon.png");
+}
+
+rect {
+  opacity: 0.9;
+}
+
+h1, h2, h3, h4, h5, h6, label {
+    font-family: 'Corben', Georgia, Times, serif;
+    text-align: center;
+}
+p, div {
+    font-family: 'Nobile', Helvetica, Arial, sans-serif;
+    text-align: center;
+    vertical-align: center;
 }

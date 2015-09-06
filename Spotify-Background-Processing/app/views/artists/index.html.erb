@@ -1,17 +1,20 @@
+<h1> Spotify Followers Search</h1>
 
+<p>
+This app uses a background process to query Spotify's API for artists' followers, persisting that information to the database. 
+</p>
+<p>
+A D3.js chart re-draws itself every second pulling the latest entry from the database. 
+</p>
+<div>
 <%= form_tag("/artists#create", method: "post") do %>
   <%= submit_tag( "Search") %>
 <% end %>
-<br>
+<div>
 <p>
-  <button onclick="dynamicBarChart();">Start Chart</button>
+  <button class="pure-button pure-button-primary" onclick="dynamicBarChart();">Get Started</button>
   <div class="label" id="label"></div>
-  
-  <script>
-
-  </script>
 </p>
-<div class="results" id="results"></div>
 
 
 

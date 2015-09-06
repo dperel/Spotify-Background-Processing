@@ -13,7 +13,7 @@ require 'json'
 
   def create
       HardWorker.perform_async
-      redirect_to(:back)
+      render 'artists/index'
   end 
 
 end
