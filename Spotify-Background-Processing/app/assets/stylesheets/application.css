@@ -14,8 +14,12 @@
  *= require_self
  */ 
 
-  text {
-  fill: blue;
+.label {
+  fill: black;
   font-family: 'Trebuchet MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Tahoma, sans-serif;
-  font-size: 20px;
+  font-size: 25px;
+}
+
+svg {
+  background-color: grey;
 }

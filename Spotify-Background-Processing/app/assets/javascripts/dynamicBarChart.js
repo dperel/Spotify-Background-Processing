@@ -90,7 +90,7 @@ function redraw(data) {
        .duration(1000)
        .attr("x", function(d) { return x(d.id)-250});
 
-$('#label').html(data[0].name)
+$('#label').html(data[0].name + " has " + data[0].followers + " followers on Spotify")
 
    // Update…
    rect.transition()
