@@ -1,5 +1,4 @@
-$(document).on("click","#submit-button",dynamicBarChart());
-
+  
 
 function dynamicBarChart(data){
  var w = 800,
