@@ -1,3 +1,5 @@
+//1st JS function call 
+$(window).ready(function(){dynamicBarChart()})
 
 
 function updateChart(){

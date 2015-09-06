@@ -11,7 +11,7 @@ require 'json'
     end
   end
 
-  def create
+  def index
       HardWorker.perform_async
       render 'artists/index' 
   end 

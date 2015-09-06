@@ -6,15 +6,8 @@ This app uses a background process to query Spotify's API for artists' followers
 <p>
 A D3.js chart re-draws itself every second pulling the latest entry from the database. Each click draws 50 artists from Spotify.  
 </p>
-<div>
-<%= form_tag({:action => 'create', :method => 'post'}, {:class => 'submit-button'}) do %>
-  <%= submit_tag( "1. Click to start API query") %>
-<% end %>
-<div>
+
 <p>
-  <button class="pure-button pure-button-active" onclick="dynamicBarChart();">2. Start Visualizing Data</button>
   <div class="label" id="label"></div>
-</p>
-
-
+</p>  
 
