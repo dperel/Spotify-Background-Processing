@@ -8,11 +8,11 @@ A D3.js chart re-draws itself every second pulling the latest entry from the dat
 </p>
 <div>
 <%= form_tag({:action => 'create', :method => 'post'}, {:class => 'submit-button'}) do %>
-  <%= submit_tag( "Click to start API query") %>
+  <%= submit_tag( "1. Click to start API query") %>
 <% end %>
 <div>
 <p>
-  <button class="pure-button pure-button-active" onclick="dynamicBarChart();">Start Visualizing Data</button>
+  <button class="pure-button pure-button-active" onclick="dynamicBarChart();">2. Start Visualizing Data</button>
   <div class="label" id="label"></div>
 </p>
 
