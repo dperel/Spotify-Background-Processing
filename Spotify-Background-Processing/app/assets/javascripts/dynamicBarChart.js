@@ -1,3 +1,6 @@
+$(document).on("click","#submit-button",dynamicBarChart());
+
+
 function dynamicBarChart(data){
  var w = 800,
      h = 300,
@@ -57,7 +60,7 @@ var colorScale = d3.scale.linear()
     .attr("stroke-width", 1);
 
 
-    chart.append("svg:line")
+  chart.append("svg:line")
     .attr("x1", 0)
     .attr("x2", w )
     .attr("y1", 3*(h/5) )
@@ -66,7 +69,7 @@ var colorScale = d3.scale.linear()
     .attr("stroke-width", 1);
 
 
-    chart.append("svg:line")
+  chart.append("svg:line")
     .attr("x1", 0 )
     .attr("x2", w )
     .attr("y1", 4*(h/5) )
@@ -74,11 +77,9 @@ var colorScale = d3.scale.linear()
     .attr("stroke", "gray")
     .attr("stroke-width", 1);
 
-
 setTimeout(function(){
   updateChart();
     }, 1100);
-
 };
 
 function redraw(data) {
@@ -118,8 +119,6 @@ function redraw(data) {
        .attr("width", b)
        .attr("height", function(d) { return heightScale(d.followers); })
        .attr("fill", function(d) { return colorScale(d.followers)})
-       .append("svg:title")
-       .attr("text", function(d){return (d.name)})
        .transition()
        .duration(1000)
        .attr("x", function(d) { return x(d.id)-250});
@@ -137,15 +136,6 @@ $('#label').html(data[0].name + " has " + data[0].followers + " followers on Spo
       .duration(1000)
       .attr("x", function(d) { return x(d.id)-800})
       .remove();
-
-    // rect.enter().insert("svg:text", "text")
-    // .data(data)
-    // .attr("x", 265 )
-    // .attr("y", 240 )
-    // .style("text-anchor", "middle")
-    // .attr("text", function(d){return (d.name)}); 
-
-
 
 
     setTimeout(function(){

@@ -1,18 +1,18 @@
 <h1> Spotify Followers Search</h1>
 
 <p>
-This app uses a background process to query Spotify's API for artists' followers, persisting that information to the database. 
+This app uses a background process to query Spotify's API for artists' followers, persisting that information to the database. Bars may pause or stop, depending on how fast Spotify sends data to this webapp. 
 </p>
 <p>
-A D3.js chart re-draws itself every second pulling the latest entry from the database. 
+A D3.js chart re-draws itself every second pulling the latest entry from the database. Each click draws 50 artists from Spotify.  
 </p>
 <div>
-<%= form_tag("/artists#create", method: "post") do %>
-  <%= submit_tag( "Search") %>
+<%= form_tag({:action => 'create', :method => 'post'}, {:class => 'submit-button'}) do %>
+  <%= submit_tag( "Get Started") %>
 <% end %>
 <div>
 <p>
-  <button class="pure-button pure-button-primary" onclick="dynamicBarChart();">Get Started</button>
+  <button class="pure-button pure-button-primary" onclick="dynamicBarChart();">Reset Chart</button>
   <div class="label" id="label"></div>
 </p>
 
