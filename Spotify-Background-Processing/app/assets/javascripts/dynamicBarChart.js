@@ -13,16 +13,16 @@ function dynamicBarChart(data){
   .range([0,100])
 
   var y = d3.scale.linear()
-     .domain([0, 3000000])
+     .domain([0, 5000000])
      .range([0, h]);
 
   var heightScale = d3.scale.linear()
-    .domain([0,3000000])
+    .domain([0,5000000])
     .range([0,h]);
 
   var colorScale = d3.scale.linear()
-    .domain([0,3000000])
-    .range(["blue","red"]);
+    .domain([0,5000000])
+    .range(["yellow","red"]);
 
  var chart = d3.select("body")
   .append("svg:svg")
@@ -77,6 +77,20 @@ function dynamicBarChart(data){
     .attr("stroke", "gray")
     .attr("stroke-width", 1);
 
+  chart.append("svg:text")
+  .attr("x", w/4)
+  .attr("y", h-7)
+  .text("Time from load of page to retrieval of data item");
+
+  chart.append("svg:text")
+  .attr("x", -275)
+  .attr("y", h-283)
+  .text("Followers from zero to 5,000,000")
+  .attr("transform", function(d) {
+                return "rotate(-90)" 
+                });
+
+
 setTimeout(function(){
   updateChart();
     }, 1100);
@@ -92,26 +106,21 @@ function redraw(data) {
       h = 300,
       b = 25;
 
-  // var x = d3.scale.linear()
-  //    .domain([0,50])
-  //    .range([0,w]);
-
- var x = d3.scale.linear()
-  .domain([0,10])
-  .range([0,100])
+  var x = d3.scale.linear()
+    .domain([0,10])
+    .range([0,100])
 
   var y = d3.scale.linear()
-     .domain([0, 3000000])
+     .domain([0, 5000000])
      .range([0, h]);
 
   var heightScale = d3.scale.linear()
-    .domain([0,3000000])
+    .domain([0,5000000])
     .range([0,h]);
 
   var colorScale = d3.scale.linear()
-    .domain([0,3000000])
+    .domain([0,5000000])
     .range(["yellow","red"]);
-
 
   var rect = chart.selectAll("rect")
        .data(data, function(d){return ((d.created_at))});
@@ -122,13 +131,12 @@ function redraw(data) {
        .attr("y", function(d) { return h - y(d.followers)})
        .attr("width", b)
        .attr("height", function(d) { return heightScale(d.followers); })
-       .attr("fill", function(d) { return colorScale(d.followers)})
-       .transition()
-       .duration(1000)
-       .attr("x", (dataTime-startTime)/100);
+       .attr("fill", function(d) { return colorScale(d.followers)});
 
 $('#label').html(data[0].name + " has " + data[0].followers + " followers on Spotify")
+  
 
+  // REMOVED the following effects 
    // // Update…
    // rect.transition()
    //     .duration(1000)
